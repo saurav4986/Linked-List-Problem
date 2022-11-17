@@ -1,9 +1,7 @@
 package com.bridgeLabz.LinkedList;
-/*(UC6-Delete_Last)
-Ability to delete the last element in the LinkedList of sequence 56->30->70
-- Write popLast method
-- Note there is new tail
-- Final Sequence: 56->30*/
+/*(UC7-Search_Node)
+Ability to search LinkedList to find Node with value 30
+- Loop through LinkedList to find node with key 30*/
 public class SimpleLinkedList {
     Node head;
 
@@ -104,6 +102,29 @@ public class SimpleLinkedList {
         secondLast.next = null;
     }
 
+    //searchNodeWithKey(int data) to search provided elements exists in the list or not
+    public void searchNodeWithKey(int data) {
+        Node searchNode = new Node(data);
+        searchNode.data = data;
+        searchNode.next = null;
+        if (head == null) {
+            System.out.println("Linked list empty!!");
+        } else {
+            Node temp;
+            temp = head;
+            while (temp != null) {
+                if (temp.data == searchNode.data) {
+                    System.out.println("Node Found ==>" + searchNode.data);
+                    break;
+                } else {
+                    temp = temp.next;
+                }
+            }
+            if (temp == null)
+                System.out.println("!!!Node not found!!!");
+        }
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
         ll.addFirst(70);
@@ -111,9 +132,10 @@ public class SimpleLinkedList {
         ll.addFirst(56);
         System.out.println("Elements before:");
         ll.printList();
-        ll.popLast();
-        System.out.println("Elements after:");
-        ll.printList();
+        ll.searchNodeWithKey(30);
+
+       // System.out.println("Elements after:");
+        //ll.printList();
 
     }
 }
