@@ -1,10 +1,7 @@
 package com.bridgeLabz.LinkedList;
-/*(UC3-Append)
-Ability to create Linked List by appending 30 and 70 to 56
-- Node with data 56 is First Created
-- Next Append 30 to 56
-- Finally Append 70 to 30
-- LinkedList Sequence: 56->30->70*/
+/*(UC4-Insert_At_Index)
+Ability to insert 30 between 56 and 70
+- Final Sequence: 56->30->70*/
 public class SimpleLinkedList {
     Node head;
 
@@ -59,6 +56,23 @@ public class SimpleLinkedList {
         //assigning the new Node reference to the head reference
         head = newNode;
     }
+    //insertAtIndex(int index, int data) insert element between two given element
+    public void insertAtIndex(int index, int data) {
+        Node node = new Node(data);
+        node.data = data;
+        node.next = null;
+        if (head == null) {
+            addFirst(data);
+        } else {
+            Node temp;
+            temp = head;
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
+            }
+            node.next = temp.next;
+            temp.next = node;
+        }
+    }
 
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
@@ -67,8 +81,11 @@ public class SimpleLinkedList {
 //        ll.addFirst(56);
 
         ll.append(56);
-        ll.append(30);
         ll.append(70);
+        System.out.println("LinkedList before: ");
+        ll.printList();
+        System.out.println("LinkedList after insertion in between 2 elements: ");
+        ll.insertAtIndex(1,30);
         ll.printList();
 
     }
