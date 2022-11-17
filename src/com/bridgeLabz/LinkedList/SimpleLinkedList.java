@@ -8,7 +8,6 @@ Ability to create Ordered Linked List in ascending order of
 - Final Sequence: 30->40->56->70*/
 public class SimpleLinkedList {
     Node head;
-
     static class Node {
         int data;
         Node next;
@@ -18,7 +17,7 @@ public class SimpleLinkedList {
             this.next = null;
         }
     }
-    //append() is used to add node from last
+    /*append() is used to add node from last*/
     public void append(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -32,7 +31,7 @@ public class SimpleLinkedList {
         }
         lastNode.next = newNode;
     }
-    //printList() to print the LinkedList
+    /*printList() to print the LinkedList*/
     public void printList() {
         if (head == null) {
             System.out.println("Linked list is empty!");
@@ -47,20 +46,20 @@ public class SimpleLinkedList {
     }
 
     public void addFirst(int data) {
-        //adding element before the head of the linked list
-        //if linked list is empty then head will be null so will add the element in the head first
+        /*adding element before the head of the linked list
+        if linked list is empty then head will be null so will add the element in the head first*/
         if (head == null) {
             head = new Node(data);
             head.next = null;
             return;
         }
         Node newNode = new Node(data);
-        //Changing the head reference to new node next reference
+        /*Changing the head reference to new node next reference*/
         newNode.next = head;
-        //assigning the new Node reference to the head reference
+        /*assigning the new Node reference to the head reference*/
         head = newNode;
     }
-    //insertAtIndex(int index, int data) insert element between two given element
+    /*insertAtIndex(int index, int data) insert element between two given element*/
     public void insertAtIndex(int index, int data) {
         Node node = new Node(data);
         node.data = data;
@@ -78,7 +77,7 @@ public class SimpleLinkedList {
         }
     }
 
-    //pop() is used to delete from first i.e. head
+    /*pop() is used to delete from first i.e. head*/
     public void pop(){
         if (head == null){
             System.out.println("list is empty");
@@ -87,7 +86,7 @@ public class SimpleLinkedList {
         head = head.next;
     }
 
-    //popLast() used to delete last element in the list
+    /*popLast() used to delete last element in the list*/
     public void popLast(){
         if (head == null){
             System.out.println("list is empty");
@@ -106,7 +105,7 @@ public class SimpleLinkedList {
         secondLast.next = null;
     }
 
-    //searchNodeWithKey(int data) to search provided elements exists in the list or not
+    /*searchNodeWithKey(int data) to search provided elements exists in the list or not*/
     public void searchNodeWithKey(int data) {
         Node searchNode = new Node(data);
         searchNode.data = data;
@@ -128,7 +127,7 @@ public class SimpleLinkedList {
                 System.out.println("!!!Node not found!!!");
         }
     }
-    //deleteNode(int index) used to delete node from particular index
+    /*deleteNode(int index) used to delete node from particular index*/
     public void deleteNode(int index) {
         Node node;
         Node temp;
@@ -150,7 +149,7 @@ public class SimpleLinkedList {
         }
     }
 
-    //sizeOfLinkedList() used to find the size of the list
+    /*sizeOfLinkedList() used to find the size of the list*/
     public void sizeOfLinkedList() {
         Node temp;
         temp = head;
@@ -167,7 +166,7 @@ public class SimpleLinkedList {
         }
     }
 
-    //sort() used to sort the list in ascending order and make it Ordered LinkedList
+    /*sort() used to sort the list in ascending order and make it Ordered LinkedList*/
     public void sort() {
         Node current = head, index = null;
         int temp;
@@ -176,14 +175,12 @@ public class SimpleLinkedList {
             System.out.println("Linked list empty!!");
         } else {
             while (current != null) {
-                // Node index will point to node next to
-                // current
+                /* Node index will point to node next to current*/
                 index = current.next;
-
                 while (index != null) {
-                    // If current node's data is greater
-                    // than index's node data, swap the data
-                    // between them
+                    /* If current node's data is greater
+                     than index's node data, swap the data
+                     between them*/
                     if (current.data > index.data) {
                         temp = current.data;
                         current.data = index.data;
