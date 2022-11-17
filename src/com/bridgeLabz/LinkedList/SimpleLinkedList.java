@@ -1,10 +1,11 @@
 package com.bridgeLabz.LinkedList;
-/*(UC9-Size)
-Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
-- Search LinkedList to find node with key value 40
-- Delete the node
-- Implement size() and show the Linked List size is 3
-- Final Sequence: 56->30->70*/
+/*(UC10-Sort)
+Ability to create Ordered Linked List in ascending order of
+ data entered in following sequence 56, 30, 40, and 70
+- Refactor the code to create SortedLinkedList Class
+- Create Node that takes data that is Comparable
+- Perform Sorting during the add method call
+- Final Sequence: 30->40->56->70*/
 public class SimpleLinkedList {
     Node head;
 
@@ -166,21 +167,47 @@ public class SimpleLinkedList {
         }
     }
 
+    //sort() used to sort the list in ascending order and make it Ordered LinkedList
+    public void sort() {
+        Node current = head, index = null;
+        int temp;
+
+        if (head == null) {
+            System.out.println("Linked list empty!!");
+        } else {
+            while (current != null) {
+                // Node index will point to node next to
+                // current
+                index = current.next;
+
+                while (index != null) {
+                    // If current node's data is greater
+                    // than index's node data, swap the data
+                    // between them
+                    if (current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
-        ll.addFirst(70);
-        ll.addFirst(30);
+
         ll.addFirst(56);
-        //System.out.println("Elements before:");
+        ll.append(30);
+        ll.append(40);
+        ll.append(70);
+        System.out.println("List before sorting");
         ll.printList();
-        ll.searchNodeWithKey(30);
-        //System.out.println("Elements after:");
-        ll.insertAtIndex(2,40);
+        System.out.println("List after sorting");
+        ll.sort();
         ll.printList();
-        ll.searchNodeWithKey(40);
-        ll.deleteNode(2);
-        ll.printList();
-        ll.sizeOfLinkedList();
 
     }
 }
