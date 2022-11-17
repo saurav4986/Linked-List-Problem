@@ -1,9 +1,10 @@
 package com.bridgeLabz.LinkedList;
-/*(UC8-Perform_Search_&_Insertion)
-Ability to insert 40 after 30 to the Linked List sequence of 56->30->70
-- Search LinkedList to get Node with key value 30
-- Then Insert 40 to 30
-- Final Sequence: 56->30->40->70*/
+/*(UC9-Size)
+Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
+- Search LinkedList to find node with key value 40
+- Delete the node
+- Implement size() and show the Linked List size is 3
+- Final Sequence: 56->30->70*/
 public class SimpleLinkedList {
     Node head;
 
@@ -126,18 +127,60 @@ public class SimpleLinkedList {
                 System.out.println("!!!Node not found!!!");
         }
     }
+    //deleteNode(int index) used to delete node from particular index
+    public void deleteNode(int index) {
+        Node node;
+        Node temp;
+        temp = head;
+        if (head == null) {
+            System.out.println("Linked list empty!!");
+        } else {
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
+            }
+            if (index == 0) {
+                head = head.next;
+                temp = null;
+            } else {
+                node = temp.next;
+                temp.next = node.next;
+                node = null;
+            }
+        }
+    }
+
+    //sizeOfLinkedList() used to find the size of the list
+    public void sizeOfLinkedList() {
+        Node temp;
+        temp = head;
+        int count = 0;
+        if (head == null) {
+            System.out.println("Linked list empty!!");
+        } else {
+            while (temp.next != null) {
+                temp = temp.next;
+                count++;
+            }
+            count++;
+            System.out.println("Size of Linked list is " + count);
+        }
+    }
 
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
         ll.addFirst(70);
         ll.addFirst(30);
         ll.addFirst(56);
-        System.out.println("Elements before:");
+        //System.out.println("Elements before:");
         ll.printList();
         ll.searchNodeWithKey(30);
-        System.out.println("Elements after:");
+        //System.out.println("Elements after:");
         ll.insertAtIndex(2,40);
         ll.printList();
+        ll.searchNodeWithKey(40);
+        ll.deleteNode(2);
+        ll.printList();
+        ll.sizeOfLinkedList();
 
     }
 }
