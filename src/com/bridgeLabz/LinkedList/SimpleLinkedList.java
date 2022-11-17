@@ -1,7 +1,9 @@
 package com.bridgeLabz.LinkedList;
-/*(UC7-Search_Node)
-Ability to search LinkedList to find Node with value 30
-- Loop through LinkedList to find node with key 30*/
+/*(UC8-Perform_Search_&_Insertion)
+Ability to insert 40 after 30 to the Linked List sequence of 56->30->70
+- Search LinkedList to get Node with key value 30
+- Then Insert 40 to 30
+- Final Sequence: 56->30->40->70*/
 public class SimpleLinkedList {
     Node head;
 
@@ -133,9 +135,9 @@ public class SimpleLinkedList {
         System.out.println("Elements before:");
         ll.printList();
         ll.searchNodeWithKey(30);
-
-       // System.out.println("Elements after:");
-        //ll.printList();
+        System.out.println("Elements after:");
+        ll.insertAtIndex(2,40);
+        ll.printList();
 
     }
 }
