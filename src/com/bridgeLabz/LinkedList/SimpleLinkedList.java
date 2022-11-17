@@ -1,9 +1,9 @@
 package com.bridgeLabz.LinkedList;
-/*(UC2-Insertion_At_Start)
-Ability to create LinkedList by adding 30 and 56 to 70
-- Node with data 70 is First Created
-- Next 30 is added to 70
-- Finally 56 is added to 30
+/*(UC3-Append)
+Ability to create Linked List by appending 30 and 70 to 56
+- Node with data 56 is First Created
+- Next Append 30 to 56
+- Finally Append 70 to 30
 - LinkedList Sequence: 56->30->70*/
 public class SimpleLinkedList {
     Node head;
@@ -62,9 +62,13 @@ public class SimpleLinkedList {
 
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
-        ll.addFirst(70);
-        ll.addFirst(30);
-        ll.addFirst(56);
+//        ll.addFirst(70);
+//        ll.addFirst(30);
+//        ll.addFirst(56);
+
+        ll.append(56);
+        ll.append(30);
+        ll.append(70);
         ll.printList();
 
     }
