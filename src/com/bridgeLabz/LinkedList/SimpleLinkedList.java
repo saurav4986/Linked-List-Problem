@@ -1,7 +1,9 @@
 package com.bridgeLabz.LinkedList;
-/*(UC4-Insert_At_Index)
-Ability to insert 30 between 56 and 70
-- Final Sequence: 56->30->70*/
+/*(UC5-Delete_First)
+Ability to delete the first element in the LinkedList of sequence 56->30->70
+- Write pop method
+- Note there is new head
+- Final Sequence: 30->70*/
 public class SimpleLinkedList {
     Node head;
 
@@ -74,18 +76,24 @@ public class SimpleLinkedList {
         }
     }
 
+    //pop() is used to delete from first i.e. head
+    public void pop(){
+        if (head == null){
+            System.out.println("list is empty");
+            return;
+        }
+        head = head.next;
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList ll = new SimpleLinkedList();
-//        ll.addFirst(70);
-//        ll.addFirst(30);
-//        ll.addFirst(56);
-
-        ll.append(56);
-        ll.append(70);
-        System.out.println("LinkedList before: ");
+        ll.addFirst(70);
+        ll.addFirst(30);
+        ll.addFirst(56);
+        System.out.println("Elements before:");
         ll.printList();
-        System.out.println("LinkedList after insertion in between 2 elements: ");
-        ll.insertAtIndex(1,30);
+        ll.pop();
+        System.out.println("Elements after:");
         ll.printList();
 
     }
